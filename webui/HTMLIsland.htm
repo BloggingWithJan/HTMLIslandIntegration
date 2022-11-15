@@ -1,0 +1,28 @@
+<%@page language="abap" %>
+<%@extension name="thtmlb" prefix="thtmlb" %>
+<%@extension name="chtmlb" prefix="chtmlb" %>
+<%@extension name="bsp" prefix="bsp" %>
+<%@extension name="thtmlbx" prefix="thtmlbx" %>
+<%
+*--- Just an example
+  DATA: lr_property_a type ref to data.
+  DATA: lr_property_b type ref to data.
+  DATA(lv_property_a) = 'A'.
+  DATA(lv_property_b) = 'B'.
+  GET Reference of lv_property_a into lr_property_a.
+  GET REFERENCE of lv_property_b into lr_property_b.
+%>
+<thtmlbx:htmlIsland id       = "htmltestIsland"
+                    height   = "800px"
+                    width    = "100%"
+                    htmlFile = "/sap(====)/bc/ui5_ui5/sap/zhtmlisland/index.html" >
+  <thtmlbx:htmlIslandProperty id    = "propertyA"
+                              name  = "propertyA"
+                              value = "<%= lr_property_a %>" />
+  <thtmlbx:htmlIslandProperty id    = "propertyB"
+                              name  = "propertyB"
+                              value = "<%= lr_property_b %>" />
+  <thtmlbx:htmlIslandEvent id       = "event"
+                           name     = "event"
+                           onAction = "event" />
+</thtmlbx:htmlIsland>

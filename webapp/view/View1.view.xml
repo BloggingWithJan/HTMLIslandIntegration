@@ -1,0 +1,24 @@
+<mvc:View controllerName="sample.HTMLIsland.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form">
+	<App id="app">
+		<pages>
+			<Page id="page" title="HTMLIslandTest">
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+						adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+						singleContainerFullSize="false">
+						<f:content>
+							<Label text="PropertyA"/>
+							<Text text="{htmlisland>/propertyA}"/>
+							<Label text="PropertyB"/>
+							<Text text="{htmlisland>/propertyB}"/>
+						</f:content>
+					</f:SimpleForm>
+					<FlexBox alignItems="Center" justifyContent="Center">
+						<Button text="Fire Event" press="fireEvent"/>
+					</FlexBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

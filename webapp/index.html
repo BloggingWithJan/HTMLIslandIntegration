@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+	//domain relaxation
+  try{
+      this.parent.document;//Testing if page and parent have same domain.
+  }
+  catch(e){
+      //If possible replace the following lines with a call to backend API.
+      /*No Domain Relaxation In S4*/
+      //var liBehindFirstDot = location.hostname.indexOf(".")+1;
+      //if (liBehindFirstDot > 0) {
+      //  document.domain = location.hostname.substr(liBehindFirstDot);
+      //}
+  }
+</script>		
+
+<script src="/sap(====)/bc/bsp/sap/thtmlb_scripts/island_scripts.js?version=1" type="text/javascript"></script>		
+		<title>HTMLIsland</title>
+		<script id="sap-ui-bootstrap"
+			src="resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_fiori_3"
+			data-sap-ui-resourceroots='{"sample.HTMLIsland": "./"}'
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-async="true">
+		</script>
+<script>
+var app;
+function onBodyLoad() {
+    app = new App('uiArea'); // Create an instance of an App during the onload event handler
+}
+function App(rootId) {
+ this._sPropertyA = {};
+ this._sPropertyB = {};
+ this.init(rootId);
+}
+App.prototype.init = function(rootID){
+  thtmlbxHIslandLib.register(this);
+}
+App.prototype.getPropertyA = function() {
+  return this._sPropertyA;
+};
+App.prototype.setPropertyA = function(val) {
+  this._sPropertyA = val;
+};
+App.prototype.getPropertyB = function() {
+  return this._sPropertyB;
+};
+App.prototype.setPropertyB = function(val) {
+  this._sPropertyB = val;
+};
+App.prototype.fireServerEvent = function(name, paramMap) {
+  logX('App1', 'fireServerEvent', 'Event name: ' + name);
+  thtmlbxHIslandLib.fireEvent(name, paramMap);
+};
+</script>		
+	</head>
+	<body class="sapUiBody" onload="onBodyLoad()">
+		<div data-sap-ui-component data-name="sample.HTMLIsland" data-id="container" data-settings='{"id" : "HTMLIsland"}'></div>
+	</body>
+</html>
