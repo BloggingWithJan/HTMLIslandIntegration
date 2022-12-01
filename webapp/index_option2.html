@@ -16,7 +16,7 @@
       //  document.domain = location.hostname.substr(liBehindFirstDot);
       //}
   }
-</script>		
+</script>	
 
 <script src="/sap(====)/bc/bsp/sap/thtmlb_scripts/island_scripts.js?version=1" type="text/javascript"></script>		
 		<title>HTMLIsland</title>
@@ -40,25 +40,6 @@ function App(rootId) {
 }
 App.prototype.init = function(rootID){
   thtmlbxHIslandLib.register(this);
-  
-  this._oComponentContainer = new sap.ui.core.ComponentContainer({
-			height: "100%"
-		});
-		
-this._oComponentContainer.placeAt(rootID);			
-
-	sap.ui.component({
-				name: "sample.HTMLIsland",
-				settings: {},
-				componentData: { },
-				manifest: true
-			}).then(function (oComp) {
-				oComp.setIslandPropertys(this._sPropertyA, this._sPropertyB);
-				this._oComponentContainer.setComponent(oComp);
-			}.bind(this));
-
-}
-  
 }
 App.prototype.getPropertyA = function() {
   return this._sPropertyA;
@@ -77,8 +58,8 @@ App.prototype.fireServerEvent = function(name, paramMap) {
   thtmlbxHIslandLib.fireEvent(name, paramMap);
 };
 </script>		
-  </head>
-  <body onload="onBodyLoad()" class="sapUiBody" id="content">
-      <div id="uiArea"></div>
-  </body>
+	</head>
+	<body class="sapUiBody" onload="onBodyLoad()">
+		<div data-sap-ui-component data-name="sample.HTMLIsland" data-id="container" data-settings='{"id" : "HTMLIsland"}'></div>
+	</body>
 </html>
