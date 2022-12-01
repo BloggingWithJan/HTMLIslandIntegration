@@ -12,6 +12,10 @@
 							<Text text="{htmlisland>/propertyA}"/>
 							<Label text="PropertyB"/>
 							<Text text="{htmlisland>/propertyB}"/>
+							<Label text="PropertyA(index option 3)"/>
+							<Text text="{htmlislandoption3>/propertyA}"/>
+							<Label text="PropertyB(index option 3)"/>
+							<Text text="{htmlislandoption3>/propertyB}"/>
 						</f:content>
 					</f:SimpleForm>
 					<FlexBox alignItems="Center" justifyContent="Center">
