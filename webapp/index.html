@@ -24,9 +24,7 @@
 			src="resources/sap-ui-core.js"
 			data-sap-ui-theme="sap_fiori_3"
 			data-sap-ui-resourceroots='{"sample.HTMLIsland": "./"}'
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-			data-sap-ui-async="true">
+			data-sap-ui-compatVersion="edge">
 		</script>
 <script>
 var app;
@@ -39,7 +37,24 @@ function App(rootId) {
  this.init(rootId);
 }
 App.prototype.init = function(rootID){
-  thtmlbxHIslandLib.register(this);
+	thtmlbxHIslandLib.register(this);
+  
+	this._oComponentContainer = new sap.ui.core.ComponentContainer({
+			height: "100%"
+		});
+		
+	this._oComponentContainer.placeAt(rootID);			
+
+	sap.ui.component({
+				name: "sample.HTMLIsland",
+				settings: {},
+				componentData: { },
+				manifest: true
+			}).then(function (oComp) {
+				oComp.setIslandPropertys(this._sPropertyA, this._sPropertyB);
+				this._oComponentContainer.setComponent(oComp);
+			}.bind(this));
+
 }
 App.prototype.getPropertyA = function() {
   return this._sPropertyA;
@@ -58,8 +73,8 @@ App.prototype.fireServerEvent = function(name, paramMap) {
   thtmlbxHIslandLib.fireEvent(name, paramMap);
 };
 </script>		
-	</head>
-	<body class="sapUiBody" onload="onBodyLoad()">
-		<div data-sap-ui-component data-name="sample.HTMLIsland" data-id="container" data-settings='{"id" : "HTMLIsland"}'></div>
-	</body>
+  </head>
+  <body onload="onBodyLoad()" class="sapUiBody" id="content">
+      <div id="uiArea"></div>
+  </body>
 </html>
