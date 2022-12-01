@@ -24,9 +24,7 @@
 			src="resources/sap-ui-core.js"
 			data-sap-ui-theme="sap_fiori_3"
 			data-sap-ui-resourceroots='{"sample.HTMLIsland": "./"}'
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-			data-sap-ui-async="true">
+			data-sap-ui-compatVersion="edge">
 		</script>
 <script>
 var app;
@@ -48,20 +46,19 @@ this._oXMLView.placeAt(rootID);
 
 }
   
-}
 App.prototype.getPropertyA = function() {
   return this._sPropertyA;
 };
 App.prototype.setPropertyA = function(val) {
   this._sPropertyA = val;
-    //this._oXMLView.getController().setIslandPropertys(this._sPropertyA, this._sPropertyB);
+    this._oXMLView.getController().setIslandPropertys(this._sPropertyA, this._sPropertyB);
 };
 App.prototype.getPropertyB = function() {
   return this._sPropertyB;
 };
 App.prototype.setPropertyB = function(val) {
   this._sPropertyB = val;
-    //this._oXMLView.getController().setIslandPropertys(this._sPropertyA, this._sPropertyB);
+    this._oXMLView.getController().setIslandPropertys(this._sPropertyA, this._sPropertyB);
 };
 App.prototype.fireServerEvent = function(name, paramMap) {
   logX('App1', 'fireServerEvent', 'Event name: ' + name);
