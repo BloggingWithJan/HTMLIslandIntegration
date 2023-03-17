@@ -1,4 +1,4 @@
 # HTMLIslandIntegration
 
 ## Infos
-https://bloggingwithjan.com/how-to-integrate-an-sapui5-application-into-the-sap-web-ui/
+https://bloggingwithjan.com/integrate-a-sapui5-app-into-the-sap-web-ui-via-the-htmlisland/
